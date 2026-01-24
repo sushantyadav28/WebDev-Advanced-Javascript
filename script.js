@@ -18,5 +18,25 @@
 
 
 
-const button=document.querySelector("button")
-button.classList.add("btn")
+// const button=document.querySelector("button")
+// button.classList.add("btn")
+
+// debugger
+console.log(a)
+// console.log(b)
+
+
+var a=3453
+let b=456;
+
+console.log(a)
+console.log(b)
+
+function print(){
+    let c= 40
+    console.log("inside fn")
+}
+
+console.log(c)
+
+print()
