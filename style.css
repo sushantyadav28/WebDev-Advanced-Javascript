@@ -2,6 +2,16 @@
     background-color: crimson;
     color: white;
     width: 100px;
-    height: 100 px;
+    height: 40px;
     border: 2px solid black;
     border-radius: 10px;}
+
+    li{
+    background-color: lightgreen;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    margin: 6px;
+    align-items: center;
+    width: 300px;
+}

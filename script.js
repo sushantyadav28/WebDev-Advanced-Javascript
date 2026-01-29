@@ -22,21 +22,65 @@
 // button.classList.add("btn")
 
 // debugger
-console.log(a)
+// console.log(a)
 // console.log(b)
 
 
-var a=3453
-let b=456;
+// var a=3453
+// let b=456;
 
-console.log(a)
-console.log(b)
+// console.log(a)
+// console.log(b)
 
-function print(){
-    let c= 40
-    console.log("inside fn")
+// function print(){
+//     let c= 40
+//     console.log("inside fn")
+// }
+
+// console.log(c)
+
+// print()
+
+
+const studentNAme=document.querySelector("#name")
+const button=document.querySelector(".btn")
+const list=document.querySelector(".list")
+
+button.addEventListener("click",()=>{
+
+    //Creating an element
+
+    const li=document.createElement("li")
+    const deleteButton=document.createElement("button")
+
+    //providing the text
+
+    li.innerText=studentNAme.value
+    deleteButton.innerText="Delete"
+
+    deleteButton.addEventListener("click",()=>{
+
+        // li.remove(we can also use this to dekete the element)
+        
+        list.removeChild(li)
+    })
+
+    li.appendChild(deleteButton)
+    list.appendChild(li)
+    studentNAme.value=""
+})
+
+
+
+function print(){       //Callback function
+    console.log("Hello students")
 }
 
-console.log(c)
+function greet(print){     //Higher order function
+    setTimeout(() => {
+        console.log("Hello students")
+        print()
+    }, 2000);
+}
 
-print()
+greet(print)
