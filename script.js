@@ -42,45 +42,96 @@
 // print()
 
 
-const studentNAme=document.querySelector("#name")
-const button=document.querySelector(".btn")
-const list=document.querySelector(".list")
+// const studentNAme=document.querySelector("#name")
+// const button=document.querySelector(".btn")
+// const list=document.querySelector(".list")
 
-button.addEventListener("click",()=>{
+// button.addEventListener("click",()=>{
 
-    //Creating an element
+//     //Creating an element
 
-    const li=document.createElement("li")
-    const deleteButton=document.createElement("button")
+//     const li=document.createElement("li")
+//     const deleteButton=document.createElement("button")
 
-    //providing the text
+//     //providing the text
 
-    li.innerText=studentNAme.value
-    deleteButton.innerText="Delete"
+//     li.innerText=studentNAme.value
+//     deleteButton.innerText="Delete"
 
-    deleteButton.addEventListener("click",()=>{
+//     deleteButton.addEventListener("click",()=>{
 
-        // li.remove(we can also use this to dekete the element)
+//         // li.remove(we can also use this to dekete the element)
         
-        list.removeChild(li)
-    })
+//         list.removeChild(li)
+//     })
 
-    li.appendChild(deleteButton)
-    list.appendChild(li)
-    studentNAme.value=""
+//     li.appendChild(deleteButton)
+//     list.appendChild(li)
+//     studentNAme.value=""
+// })
+
+
+
+// function print(){       //Callback function
+//     console.log("Hello students")
+// } 
+
+// function greet(print){     //Higher order function
+//     setTimeout(() => {
+//         console.log("Hello students")
+//         print()
+//     }, 2000);
+// }
+
+// greet(print)
+
+
+
+// function finishHomework(callback){
+//     console.log("Starting homework")
+//     setTimeout(() => {
+//         console.log("Homework completed");
+//         callback();
+//     }, 3000);
+// }
+
+// function eatDinner(callback){
+//     console.log("Starting dinner")
+//     setTimeout(() => {
+//         console.log("Dinner Done")
+//         console.log("Getting ready to go out")
+//         callback();
+//     }, 2000);
+// }
+
+// function goToPlayground(){
+//     console.log("Going to the playground")
+// }
+
+// finishHomework(()=>{
+//     eatDinner(()=>{
+//         goToPlayground();
+//     });
+// });
+
+
+
+
+const p=new Promise((res,rej)=>{          // 1st slot always = solve , 2nd always = rejected
+    console.log("Going to do the homework")
+
+    setTimeout(()=>{
+        const done=true;
+        if(done){
+            res("Success")
+        }else{
+            rej("Failed to fetch data")
+        }
+    },3000);
 })
 
-
-
-function print(){       //Callback function
-    console.log("Hello students")
-}
-
-function greet(print){     //Higher order function
-    setTimeout(() => {
-        console.log("Hello students")
-        print()
-    }, 2000);
-}
-
-greet(print)
+p.then((msg)=>{                     //thwn always take resolve 
+    console.log(msg)
+}).catch((error)=>{                 // catch always take rejected
+    console.log(error)
+})
