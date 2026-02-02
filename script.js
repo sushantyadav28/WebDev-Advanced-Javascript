@@ -115,23 +115,98 @@
 // });
 
 
+                                       //PROMISES//
+
+// const p=new Promise((res,rej)=>{          // 1st slot always = solve , 2nd always = rejected
+//     console.log("Going to do the homework")
+
+//     setTimeout(()=>{
+//         const done=false;
+//         if(done){
+//             res("Success")
+//         }else{
+//             rej("Failed to fetch data")
+//         }
+//     },3000);
+// })
+
+// p.then((msg)=>{                     //then always take resolve 
+//     console.log(msg)
+// }).catch((error)=>{                 // catch always take rejected
+//     console.log(error)
+// }).finally(()=>{
+//     console.log("Finally Called")
+// })
 
 
-const p=new Promise((res,rej)=>{          // 1st slot always = solve , 2nd always = rejected
-    console.log("Going to do the homework")
 
-    setTimeout(()=>{
-        const done=true;
-        if(done){
-            res("Success")
-        }else{
-            rej("Failed to fetch data")
-        }
-    },3000);
+function doHomework(){
+    const p=new Promise((res,rej)=>{
+        setTimeout(()=>{
+            let done=true;
+            if(done){
+                console.log("Homework Completed")
+                res("Homework done")
+            }
+            else{
+                rej("Homework not done")
+            }
+        },2000)
+    })
+    return p;
+}
+
+
+
+
+function eatDinner(){
+    const p=new Promise((res,rej)=>{
+        setTimeout(()=>{
+            let done=true;
+            if(done){
+                console.log("Dinner Completed")
+                res("Dinner done")
+            }
+            else{
+                rej("Dinner not done")
+            }
+        },2000)
+    })
+    return p;
+}
+
+
+
+
+function goToPlayground(){
+    const p=new Promise((res,rej)=>{
+        setTimeout(()=>{
+            let done=true;
+            if(done){
+                console.log("Went to pg")
+                res("PG Time")
+            }
+            else{
+                rej("Not Allowed")
+            }
+        },2000)
+    })
+    return p;
+}
+
+
+
+doHomework().then((data)=>{
+    console.log(data)
+    return eatDinner()
+}).then((data)=>{
+    console.log(data)
+    return goToPlayground
+}).then((data)=>{
+    console,log(data)
 })
-
-p.then((msg)=>{                     //thwn always take resolve 
-    console.log(msg)
-}).catch((error)=>{                 // catch always take rejected
-    console.log(error)
+.catch((err)=>{
+    console.log(err)
+}).finally(()=>{
+    console.log("All done")
 })
