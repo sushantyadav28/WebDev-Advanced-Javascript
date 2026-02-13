@@ -292,3 +292,41 @@
 // }
 
 // processfood()
+
+console.log("Its the first line")
+try{
+    let age=19;
+    if(age<18){
+        throw new Error("Not allowed to vote")
+    }
+    let sample;
+    for(let i =0;i<10;i++){
+        sample=i
+    }
+
+}
+catch(error){
+    console.log(error)
+    throw new Error("Please check the age ")
+}finally{
+    console.log("This will always execute")
+
+}
+console.log("Its the last line")
+
+async function getData(){
+    try{
+        const response = await fetch("https://dummyjson.com/products");
+        const data = await response.json();
+        console.log(response.ok);
+        if (!response.ok) {
+            throw new Error("Something Went Wrong");
+        }
+        data.products.forEach(product => {
+            console.log(product.title);
+        });
+    }catch(err){
+        console.log(err);
+    }
+}
+getData();
