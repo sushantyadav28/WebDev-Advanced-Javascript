@@ -332,29 +332,69 @@
 // getData();
 
 
-async function getData(){
-    try{
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts",{
-            method:"POST",
-            headers:{
-                "content-type":"application/json"
-            },
-            body:JSON.stringify({
-                title:"foo",
-                body:"bar",
-                userId:1
-            })
-        });
-        if (!response.ok) {
-            throw new Error("Something Went Wrong");
-        }
-        const data = await response.json();
-        console.log(data)
-        // data.products.forEach(product => {
-        //     console.log(product.title);
-        // });
-    }catch(err){
-        console.log(err);
-    }
+// async function getData(){
+//     try{
+//         const response = await fetch("https://jsonplaceholder.typicode.com/posts",{
+//             method:"POST",
+//             headers:{
+//                 "content-type":"application/json"
+//             },
+//             body:JSON.stringify({
+//                 title:"foo",
+//                 body:"bar",
+//                 userId:1
+//             })
+//         });
+//         if (!response.ok) {
+//             throw new Error("Something Went Wrong");
+//         }
+//         const data = await response.json();
+//         console.log(data)
+//         // data.products.forEach(product => {
+//         //     console.log(product.title);
+//         // });
+//     }catch(err){
+//         console.log(err);
+//     }
+// }
+// getData();
+
+
+// let obj={
+//     name: "sushant",
+//     age : 20
+// }
+
+// localStorage.setItem("obj",JSON.stringify(obj))
+
+// localStorage.setItem("name", "sushant")
+// localStorage.setItem("age", 20)
+
+// console.log(localStorage.getItem("name"))
+// console.log(localStorage.getItem("age"))
+
+// console.log(JSON.parse(localStorage.getItem("obj")))     //--- to convert the string back to JSON we use JSON.parse()
+
+// localStorage.removeItem("age")
+// localStorage.clear()     //--- to clear the entire local storage
+
+
+
+// sessionStorage.setItem("name", "sushant")       //---- session storage is same as local storage but it clears all data when the
+//                                                 //----tab or broser gets closed. It is used to store data for a single session 
+//                                                 // and is cleared when the session ends. It is useful for storing temporary data that should not persist across sessions.
+// sessionStorage.setItem("age", 20)
+
+// console.log(sessionStorage.getItem("name"))
+// console.log(sessionStorage.getItem("age"))
+
+
+
+
+document.cookie="name = sushant;"
+
+
+async function sample(){
+     await fetch("http://127.0.0.1:5500/index.html");
 }
-getData();
+sample()
